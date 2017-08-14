@@ -1,0 +1,246 @@
+body{
+	font-family: 'Ubuntu',sans-serif;
+	height: 100hv;
+	 background-color:white;
+}
+footer{
+background-color:#8bb73e;
+
+}
+
+
+/*///////////////////////////////////////////Centre Page///////////////////////////////////////////*/
+#CentrePage{
+	background-color: rgb(215, 249, 173);
+	margin-left: 150px;
+	margin-right: 250px;
+	border-radius: 10px;
+}
+
+#CentrePage h1{
+	text-align: center;
+	background-color:#8bb73e;;
+	color:white;
+}
+
+
+/*///////////////////////////////////////////Fin Centre Page///////////////////////////////////////////*/
+
+/*///////////////////////////////////////////Barre de Nav///////////////////////////////////////////*/
+#DivNav{
+	background-color:#8bb73e;
+	height: 40px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+
+ul#MenuNav{
+	margin-right: 10px;
+	margin-left: -30px;
+}
+
+ul#MenuNav li{
+	background:#8bb73e;
+	display: inline;
+	padding: 0.2em 0.6em;
+	font-size: 20px;
+	height: 32px;
+	transition: background-color 0.5s linear, height 0.5s linear;
+
+}
+
+ul#MenuNav li:hover{
+	background:crimson;
+	height: 40px;
+	transition: background-color 0.5s linear, height 0.5s linear;
+}
+
+ul#MenuNav a{
+	color: white;
+	text-decoration: none;
+}
+
+li.MNG{
+	float: left;
+}
+
+li.MND{
+	float: right;
+}
+/*///////////////////////////////////////////Fin Barre de Nav///////////////////////////////////////////*/
+
+/*///////////////////////////////////////////Module Droit///////////////////////////////////////////*/
+#ModuleDroit{
+	position: fixed;
+	top: 120px;
+	right: 10px;
+	width: 235px;
+	height: auto;
+	padding-bottom: 25px;
+	background: white;
+	border-radius: 15px;
+	background:#8bb73e;
+}
+
+#MDT{
+	position: relative;
+	height: 35px;
+	top: -17px;
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+	transition: background-color 0.5s linear;
+}
+
+#MDT:hover{
+	background: crimson;
+	transition: background-color 0.5s linear;
+}
+
+#MDT:hover h1{
+	color: DarkSlateGray;
+	transition: color 0.5s linear;
+}
+
+#ModuleDroit h1{
+	text-align: center;
+	font-size: 25px;
+	color: white;
+}
+
+#ModuleDroit ul{
+	list-style-type: none;
+	margin-top: -17px;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+#ModuleDroit li{
+	margin-left: -40px;
+	height: 50px;
+	text-align: center;
+	font-size: 20px;
+	transition: background-color 0.5s linear, border-radius 2.5s linear;
+}
+
+#ModuleDroit li:hover{
+	background: crimson;
+	border-radius: 15px;
+	transition: background-color 0.5s linear, border-radius 2.5s linear;
+}
+
+#ModuleDroit a{
+	position: relative;
+	color: white;
+	text-decoration: none;
+	top: 13px;
+	transition: color 0.5s linear;
+}
+
+#ModuleDroit li:hover a{
+	color: DarkSlateGray;
+	transition: color 0.5s linear;
+}
+
+/*///////////////////////////////////////////Fin Module Droit///////////////////////////////////////////*/
+
+/*///////////////////////////////////////Fleche Retour au début///////////////////////////////*/
+#VersDebut{
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	z-index: 0;
+}
+
+#VersDebut img:hover{
+	filter: invert(1);
+}
+/*///////////////////////////////////////Fin Fleche Retour au début//////////////////////////////*/
+
+/*//////////////////////////////////////Page de chirurugie///////////////////////////////////////////*/
+#DivTitre{
+	text-align: center;
+	font-family: Trebuchet MS ;
+}
+
+#DivTitre #patho{
+	text-align: justify;
+	font-weight:oblique;
+	
+}
+#DivTitre p{
+text-align: justify;
+margin:10px;
+font-weight:bold;
+
+}
+
+
+
+.ortho{
+    float: right;
+    padding-left: 10px;
+    text-align: left;
+    margin-bottom: 10%;
+	
+	padding-left:10px;
+
+}
+
+#ortho{
+padding-left:10px;
+border:solid 1px #8bb73e;;
+}
+h3{
+	padding-top: 20px;
+}
+
+/*///////////////////////////////////Fin Page de Chirurgie///////////////////////////////////////*/
+.Corps{
+	padding-bottom: 20px;
+}
+.Corps p{
+	text-align: justify;
+	font-weight:bold;
+	margin: 10px;
+}
+
+/*////////////////////////////////////Page de formalite////////////////////////////////////////////*/
+
+form {
+ background-color:#d7f9ad;
+ padding:10px;
+ margin-left:290px;
+ width:280px;
+ font-family:'Ubuntu',Verdana;
+ }
+fieldset {
+ padding:0 20px 20px 20px;
+ margin-bottom:10px;
+ border:1px solid #8bb73e;
+
+
+ }
+legend {
+ color:#8bb73e;
+ font-weight:bold
+ }
+label {
+ margin-top:10px;
+ display:block;
+ }
+ 
+ section{
+ background-color:#d7f9ad;
+position:relative;
+}
+
+/*///////////////////////////////////Contact///////////////////////////////////////////////////////*/
+#form-div{
+padding-right:90px;
+
+}
+#formClass{
+margin-left:150px;
+width:500px;
+border-radius:5px;
+}

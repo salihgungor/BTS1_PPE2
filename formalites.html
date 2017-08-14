@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>M&eacutedecine de l'hopital du bien être</title>
+</head>
+<body id="Haut">
+	<div id="CentrePage">
+		<div id="DivNav">
+			<ul id="MenuNav">
+				<a href="index.html"><li class="MNG">Accueil</li></a>
+				<a href="medecine.html"><li class="MNG">M&eacutedecine</li></a>
+				<a href="pediatrie.html"><li class="MNG">P&eacutediatrie</li></a>
+				<a href="chirurgie.html"><li class="MNG">Chirurgie</li></a>
+				<a href="urgences.html"><li class="MNG">Urgences</li></a>
+				<a href="formalites.html"><li class="MND">Formalit&eacutes</li></a>
+				<a href="contact.html"><li class="MND">Contacts</li></a>
+			</ul>
+		</div>
+		<br>
+		<tr>
+			<td>
+				<img src="ressources/index_03.gif" width="933" height="95" alt="">
+			</td>
+		</tr>
+		<br>
+		<br>
+		<form>
+
+  <section>
+ 
+  <fieldset>
+    <legend>Vos informations personnelles</legend>
+    
+      <label for="pseudo">
+	  Votre pr&eacutenom:
+      <input type="text" id="pseudo" name="pseudo" value="" />
+      </label><br>
+      <label for="titre_2"><br>
+	  Votre nom:
+      <input type="text" id="titre_2" name="titre" value="" /> 
+      </label><br>
+	  
+	  <label for="ville"><br>
+	  Votre lieu d'habitation:
+	  <select name="ville" id="ville">
+		<option value="ro">Roubaix</option>
+        <option value="li">Lille</option>
+		<option value="to">Tourcoing</option>
+	  </select>
+		
+  </fieldset>
+  <fieldset>
+    <legend>Type de consultation</legend>
+   
+      <label for="pseudo">  
+      <input type="checkbox" id="brevet" name="pseudo" value="" />Simple controle
+      </label><br>
+	  
+      <label for="titre_22">
+      <input type="checkbox" id="BAC" name="titre" value="" />Urgent
+      </label><br>
+	  
+	  <label for="titre_3">
+      <input type="checkbox" id="BAFA" name="titre" value="" />RDV
+      </label><br>
+	  
+	  <label for="titre_4">
+      <input type="checkbox" id="BAC" name="titre" value="" />Administrative
+      </label><br>
+	  
+	  <br><span>Vous etes actuellement en</span><br>
+	  <label for="fhg">
+	  <input type="radio" name="dkfjl" value=""  />Arret Maladie
+	  </label><br>
+	  <label for="fhkhg">
+	  <input type="radio" name="dkfjl" value=""  />Cong&eacutes
+	  </label><br>
+	  <label for="fhg">
+	  <input type="radio" name="dkfjl" value=""  />Vie active
+	  </label><br>
+	  <label for="fhg">
+	  <input type="radio" name="dkfjl" value=""  />Chomeur
+	  </label><br><br>
+	  
+		
+  </fieldset>
+  <fieldset>
+	<legend>Vos problemes</legend>
+	<br><span>Saisissez le probleme que vous avez :</span><br>
+	 <p>
+       <textarea type="post" name="commm" id="commm"></textarea>
+   </p>
+  </fieldset>
+  <div id="boutton">
+  <input type="submit" value="valider" />
+  <input type="reset" value="annuler" value="annuler" onclick="msgalert()"/>
+  </div>
+  </section>
+</form>
+	</div>
+	
+</body>
+</html>
