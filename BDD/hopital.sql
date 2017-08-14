@@ -2,10 +2,10 @@
 -- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 04, 2017 at 02:26 AM
--- Server version: 5.7.14
--- PHP Version: 5.6.25
+-- Client :  127.0.0.1
+-- Généré le :  Dim 23 Avril 2017 à 21:08
+-- Version du serveur :  5.7.14
+-- Version de PHP :  5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,145 +17,214 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `hopital`
+-- Base de données :  `hopital`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `medecin`
+-- Structure de la table `horaires`
 --
 
-CREATE TABLE `medecin` (
+CREATE TABLE `horaires` (
   `id` int(11) NOT NULL,
-  `nom` varchar(40) NOT NULL,
-  `prenom` varchar(40) NOT NULL,
-  `telephone` char(10) NOT NULL,
-  `mail` varchar(50) NOT NULL,
-  `idservice` int(11) NOT NULL
+  `idMedecin` int(11) NOT NULL,
+  `debut` time NOT NULL,
+  `fin` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `medecin`
+-- Contenu de la table `horaires`
 --
 
-INSERT INTO `medecin` (`id`, `nom`, `prenom`, `telephone`, `mail`, `idservice`) VALUES
-(1, 'Bacle', 'Nathalie', '0611111111', 'mail@mail.fr', 1),
-(2, 'Picavet', 'Alexandre', '0622222222', 'mail@mail.fr', 2),
-(3, 'Gungor', 'Salih', '0633333333', 'mail@mail.fr', 3),
-(4, 'Rousseau', 'Fabien', '0644444444', 'mail@mail.fr', 4);
+INSERT INTO `horaires` (`id`, `idMedecin`, `debut`, `fin`) VALUES
+(1, 2, '08:00:00', '18:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `patient`
---
-
-CREATE TABLE `patient` (
-  `id` varchar(50) NOT NULL,
-  `nom` varchar(40) NOT NULL,
-  `prenom` varchar(40) NOT NULL,
-  `telephone` char(10) NOT NULL,
-  `dateNaissance` date NOT NULL,
-  `adresse` varchar(50) NOT NULL,
-  `codePostal` int(5) NOT NULL,
-  `ville` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `rdv`
+-- Structure de la table `rdv`
 --
 
 CREATE TABLE `rdv` (
   `id` int(11) NOT NULL,
-  `patient` varchar(50) NOT NULL,
-  `medecin` int(11) NOT NULL,
   `date` date NOT NULL,
-  `heure` time NOT NULL
+  `heure` time NOT NULL,
+  `idPatient` int(11) NOT NULL,
+  `idMedecin` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `rdv`
+--
+
+INSERT INTO `rdv` (`id`, `date`, `heure`, `idPatient`, `idMedecin`) VALUES
+(1, '2017-03-28', '11:10:30', 1, 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `service`
+-- Structure de la table `service`
 --
 
 CREATE TABLE `service` (
-  `id` int(11) NOT NULL,
-  `nom` varchar(35) NOT NULL
+  `code` int(11) NOT NULL,
+  `libelle` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `service`
+-- Contenu de la table `service`
 --
 
-INSERT INTO `service` (`id`, `nom`) VALUES
-(1, 'Médecine'),
-(2, 'Pédiatrie'),
-(3, 'Chirurgie'),
-(4, 'Urgences');
+INSERT INTO `service` (`code`, `libelle`) VALUES
+(1, 'chirurgie'),
+(2, 'pediatrie');
+
+-- --------------------------------------------------------
 
 --
--- Indexes for dumped tables
+-- Structure de la table `typeutilisateur`
+--
+
+CREATE TABLE `typeutilisateur` (
+  `code` int(11) NOT NULL,
+  `libelle` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `typeutilisateur`
+--
+
+INSERT INTO `typeutilisateur` (`code`, `libelle`) VALUES
+(1, 'medecin'),
+(2, 'patient'),
+(3, 'secretaire');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `utilisateur`
+--
+
+CREATE TABLE `utilisateur` (
+  `id` int(11) NOT NULL,
+  `login` varchar(50) NOT NULL,
+  `mdp` char(64) NOT NULL,
+  `nom` varchar(50) NOT NULL,
+  `prenom` varchar(50) NOT NULL,
+  `telephone` char(10) DEFAULT NULL,
+  `dateNaiss` date NOT NULL,
+  `adresse` varchar(50) DEFAULT NULL,
+  `codePostal` varchar(10) NOT NULL,
+  `ville` varchar(50) NOT NULL,
+  `codeTypeUtilisateur` int(11) NOT NULL,
+  `codeService` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`id`, `login`, `mdp`, `nom`, `prenom`, `telephone`, `dateNaiss`, `adresse`, `codePostal`, `ville`, `codeTypeUtilisateur`, `codeService`) VALUES
+(1, 'apicavet@orange.fr', 'fcddb3ba91ab8b4ff38a08424f343f7f465e93ac1e61926e2cf283b9d493ce09', 'patpik', 'patalex', '0606060606', '2017-03-08', 'patAdresse', '59510', 'patHem', 2, NULL),
+(2, 'apicavet@hotmail.fr', 'fcddb3ba91ab8b4ff38a08424f343f7f465e93ac1e61926e2cf283b9d493ce09', 'picavet', 'alexandre', '0606060606', '1998-07-16', 'mon adresse', '59510', 'hem', 1, 1),
+(3, 'gungor.salih@outlook.fr', 'aa', 'gungor', 'salih', '0673087798', '1988-08-20', '137 rue colbert', '59200', 'TOURCOING', 2, NULL),
+(4, 'salut@hotmail.fr', '961b6dd3ede3cb8ecbaacbd68de040cd78eb2ed5889130cceb4c49268ea4d506', 'gungor', 'salih', '0600000000', '1999-05-14', '87 rue grand place', '59100', 'roubaix', 2, NULL);
+
+--
+-- Index pour les tables exportées
 --
 
 --
--- Indexes for table `medecin`
+-- Index pour la table `horaires`
 --
-ALTER TABLE `medecin`
+ALTER TABLE `horaires`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idservice` (`idservice`);
+  ADD KEY `idMedecin` (`idMedecin`);
 
 --
--- Indexes for table `patient`
---
-ALTER TABLE `patient`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `rdv`
+-- Index pour la table `rdv`
 --
 ALTER TABLE `rdv`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `patient` (`medecin`),
-  ADD KEY `patient_2` (`patient`),
-  ADD KEY `patient_3` (`patient`,`medecin`),
-  ADD KEY `patient_4` (`patient`),
-  ADD KEY `medecin` (`medecin`);
+  ADD KEY `idPatient` (`idPatient`,`idMedecin`),
+  ADD KEY `idMedecin` (`idMedecin`),
+  ADD KEY `idPatient_2` (`idPatient`);
 
 --
--- Indexes for table `service`
+-- Index pour la table `service`
 --
 ALTER TABLE `service`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`code`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Index pour la table `typeutilisateur`
+--
+ALTER TABLE `typeutilisateur`
+  ADD PRIMARY KEY (`code`);
+
+--
+-- Index pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `codeTypeUtilisateur` (`codeTypeUtilisateur`,`codeService`),
+  ADD KEY `codeService` (`codeService`),
+  ADD KEY `codeTypeUtilisateur_2` (`codeTypeUtilisateur`),
+  ADD KEY `codeTypeUtilisateur_3` (`codeTypeUtilisateur`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
 --
 
 --
--- AUTO_INCREMENT for table `rdv`
+-- AUTO_INCREMENT pour la table `horaires`
+--
+ALTER TABLE `horaires`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT pour la table `rdv`
 --
 ALTER TABLE `rdv`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT pour la table `service`
+--
+ALTER TABLE `service`
+  MODIFY `code` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT pour la table `typeutilisateur`
+--
+ALTER TABLE `typeutilisateur`
+  MODIFY `code` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- Contraintes pour les tables exportées
 --
 
 --
--- Constraints for table `medecin`
+-- Contraintes pour la table `horaires`
 --
-ALTER TABLE `medecin`
-  ADD CONSTRAINT `MedService` FOREIGN KEY (`idservice`) REFERENCES `service` (`id`);
+ALTER TABLE `horaires`
+  ADD CONSTRAINT `horaires_ibfk_1` FOREIGN KEY (`idMedecin`) REFERENCES `utilisateur` (`id`);
 
 --
--- Constraints for table `rdv`
+-- Contraintes pour la table `rdv`
 --
 ALTER TABLE `rdv`
-  ADD CONSTRAINT `MedRdv` FOREIGN KEY (`medecin`) REFERENCES `medecin` (`id`),
-  ADD CONSTRAINT `PatRdv` FOREIGN KEY (`patient`) REFERENCES `patient` (`id`);
+  ADD CONSTRAINT `rdv_ibfk_1` FOREIGN KEY (`idPatient`) REFERENCES `utilisateur` (`id`),
+  ADD CONSTRAINT `rdv_ibfk_2` FOREIGN KEY (`idMedecin`) REFERENCES `utilisateur` (`id`);
+
+--
+-- Contraintes pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  ADD CONSTRAINT `utilisateur_ibfk_1` FOREIGN KEY (`codeTypeUtilisateur`) REFERENCES `typeutilisateur` (`code`),
+  ADD CONSTRAINT `utilisateur_ibfk_2` FOREIGN KEY (`codeService`) REFERENCES `service` (`code`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

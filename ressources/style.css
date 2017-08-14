@@ -1,0 +1,198 @@
+body{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3em;
+    min-height: 100vh;
+}
+
+.blocks{
+    padding:5px;
+		padding-top: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background-color: #efefc9;
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+}
+
+.blocks h1{
+	background-color: #d9e4a1;
+	margin: -5px;
+	margin-bottom: 3px;
+	padding: 3px;
+}
+
+.blocks h1{
+    margin-top: 0;
+}
+
+.FormSession{
+    border-radius: 20px;
+    width: 300px;
+    overflow: hidden;
+    background-color: #efefc9;
+    text-align: center;
+    padding-bottom: 15px;
+    font-size: 1em;
+
+}
+
+.FormSession h1{
+    text-align: center;
+    margin-top: 0;
+    background-color: #d9e4a1;
+    color: gray;
+}
+
+.FormSession input{
+    font-size: 1em;
+    margin-bottom: 15px;
+    width: 90%;
+}
+
+.FormSession button{
+    display: inline-block;
+    background-color: #d9e4a1;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2em;
+    color: gray;
+    width: 80%;
+    text-align: center;
+    appearance: none;
+    box-shadow: none;
+    border-radius: 0;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border: none;
+    box-shadow: 2px 2px 5px 0px black;
+}
+
+.FormSession button:focus, .FormSession button:hover{
+    background-color: #789f33;
+}
+
+.FormSession button:active{
+    background-color: #ff3030;
+    box-shadow: 0px 0px 0px 0px black;
+}
+
+table, tr, th, td{
+    text-align: center;
+    border: 2px solid black;
+    padding: 3px;
+    border-collapse: collapse;
+}
+
+#enquete table, #enquete tr, #enquete th, #enquete td{
+    border: none;
+    padding: 3px;
+    border-collapse: collapse;
+}
+
+
+#enquete{
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* DEBUT calendrier JS : jsSimpleDatePickr */
+/* conteneur calendrier */
+.calendarWrap{
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    width: 235px;
+    padding: 5px 10px 10px 10px;
+    background-color: #d9e4a1;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #555;
+    font-size: 12px;
+}
+/* bouton d'affichage*/
+#calendarMain1 > input, #calendarMain2 > input{
+    display: block;
+    width: 100px;
+    height: 22px;
+    padding-top: 2px;
+    background-color: #2e373f;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+}
+#calendarMain1 > input:hover, #calendarMain2 > input:hover{
+    background-color: #2673cb;
+}
+/* navigation dans le calendrier */
+.calendarWrap ul{
+    margin: 5px 0 10px 0;
+    padding: 0;
+}
+.calendarWrap li{
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    display: inline-block;
+    *display: inline;
+}
+.calendarWrap li.calendarTitle{
+    width: 170px;
+    color: white;
+    text-align: center;
+}
+.calendarWrap li input{
+    width: 20px;
+    background-color: #5d6f7f;
+    border: none;
+    color: #fff;
+}
+.calendarWrap li input:hover{
+    background-color: #6f8598;
+}
+/* calendrier */
+.jsCalendar{
+    color: #fff;
+    border-collapse: collapse;
+}
+.jsCalendar th{
+    color: white;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+}
+.jsCalendar td{
+    padding: 0;
+    border: none;
+}
+.jsCalendar a{
+    display: block;
+    width: 30px;
+    padding: 3px 0 3px 0;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+}
+.jsCalendar .day:hover a{
+    background-color: #2673cb;
+    border-color: #2673cb;
+}
+.jsCalendar .selectedDay a{
+    background-color: #c44d38;
+    border-color: #c44d38;
+}
