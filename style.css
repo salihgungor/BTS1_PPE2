@@ -1,7 +1,11 @@
-body{
+﻿body{
 	font-family: 'Ubuntu',sans-serif;
 	height: 100hv;
-	 background-color:white;
+	background-color:white;
+	margin:0 auto;
+	padding:0 10px;
+	min-height: 100%;
+
 }
 footer{
 background-color:#8bb73e;
@@ -19,7 +23,7 @@ background-color:#8bb73e;
 
 #CentrePage h1{
 	text-align: center;
-	background-color:#8bb73e;;
+	background-color:#8bb73e;
 	color:white;
 }
 
@@ -243,4 +247,27 @@ padding-right:90px;
 margin-left:150px;
 width:500px;
 border-radius:5px;
+}
+
+
+
+/*//////////////////////////////////////satisfaction//////////////////////////////////////////*/
+#quest {
+	text-align: center;
+	margin-top:50px;
+	border:dashed 3px green;
+	border-radius: 30px;
+}
+#enquete{
+	text-align: center;
+}
+
+#table{
+margin-left: 120px;
+margin-top: 50px;
+width: 1000px;
+}
+
+#boutton{
+	margin-left: 40%;
 }
