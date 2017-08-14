@@ -1,0 +1,139 @@
+body{
+	font-family: 'Ubuntu',sans-serif;
+	background-color:white;
+	margin:0 auto;
+	padding:0 10px;
+	min-height: 100%;
+
+}
+/*///////////////////////////////////////////Centre Page///////////////////////////////////////////*/
+#CentrePage{
+	background-color: rgb(215, 249, 173);
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 10px;
+	max-width: 1500px;
+	min-width: 1000px;
+}
+
+#CentrePage h1{
+	text-align: center;
+	background-color:#8bb73e;
+	color:white;
+}
+
+
+/*///////////////////////////////////////////Fin Centre Page///////////////////////////////////////////*/
+
+/*///////////////////////////////////////////Barre de Nav///////////////////////////////////////////*/
+#DivNav{
+	background-color:#8bb73e;
+	height: 40px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+
+ul#MenuNav{
+	margin-right: 10px;
+	margin-left: -30px;
+}
+
+ul#MenuNav li{
+	background:#8bb73e;
+	display: inline;
+	padding: 0.2em 0.6em;
+	font-size: 20px;
+	height: 32px;
+	transition: background-color 0.5s linear, height 0.5s linear;
+
+}
+
+ul#MenuNav li:hover{
+	background:crimson;
+	height: 40px;
+	transition: background-color 0.5s linear, height 0.5s linear;
+}
+
+ul#MenuNav a{
+	color: white;
+	text-decoration: none;
+}
+
+li.MNG{
+	float: left;
+}
+
+li.MND{
+	float: right;
+}
+/*///////////////////////////////////////////Fin Barre de Nav///////////////////////////////////////////*/
+
+/*//////////////////////////////////////rdv//////////////////////////////////////////*/
+#fs{
+	display: flex;
+	justify-content: space-around;
+	padding-bottom: 15px;
+}
+
+#dmdrdv{
+	display: flex;
+	justify-content: center;
+}
+
+#dmdrdv #infos{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-top: 50px;
+}
+
+#gauche fieldset{
+	flex-direction: column;
+	width: auto;
+}
+
+#droite fieldset{
+	flex-direction: column;
+	width: auto;
+}
+
+#formbuttons{
+	display: flex;
+	justify-content: center;
+}
+
+#listeRDV{
+	display: flex;
+	justify-content: center;
+	overflow: auto;
+}
+
+#listeRDV #mailListeRDV{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 10px;
+}
+
+#tabRDV{
+	border-style: solid;
+	border-collapse: collapse;
+}
+
+#tabRDV th{
+	background-color: white;
+}
+
+#tabRDV tr, #tabRDV th, #tabRDV td{
+	border-style: solid;
+	padding: 3px;
+}
+
+#AfficheRDV{
+border : solid 3px;
+border-collapse : collapse;
+}
+
+
+
+/*//////////////////////////////////////fin rdv///////////////////////////////////////*/

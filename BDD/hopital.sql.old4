@@ -1,0 +1,152 @@
+-- phpMyAdmin SQL Dump
+-- version 3.5.1
+-- http://www.phpmyadmin.net
+--
+-- Client: localhost
+-- Généré le: Lun 27 Février 2017 à 15:15
+-- Version du serveur: 5.5.24-log
+-- Version de PHP: 5.4.3
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Base de données: `hopital`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `medecin`
+--
+
+CREATE TABLE IF NOT EXISTS `medecin` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(40) NOT NULL,
+  `prenom` varchar(40) NOT NULL,
+  `telephone` char(10) NOT NULL,
+  `mail` varchar(50) NOT NULL,
+  `idservice` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idservice` (`idservice`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `medecin`
+--
+
+INSERT INTO `medecin` (`id`, `nom`, `prenom`, `telephone`, `mail`, `idservice`) VALUES
+(1, 'Bacle', 'Nathalie', '0611111111', 'mail@mail.fr', 1),
+(2, 'Picavet', 'Alexandre', '0622222222', 'mail@mail.fr', 2),
+(3, 'Gungor', 'Salih', '0633333333', 'mail@mail.fr', 3),
+(4, 'Rousseau', 'Fabien', '0644444444', 'mail@mail.fr', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `patient`
+--
+
+CREATE TABLE IF NOT EXISTS `patient` (
+  `id` varchar(50) NOT NULL,
+  `nom` varchar(40) NOT NULL,
+  `prenom` varchar(40) NOT NULL,
+  `telephone` char(10) NOT NULL,
+  `DateNaiss` date DEFAULT NULL,
+  `adresse` varchar(50) DEFAULT NULL,
+  `cp` int(5) DEFAULT NULL,
+  `ville` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `patient`
+--
+
+INSERT INTO `patient` (`id`, `nom`, `prenom`, `telephone`, `DateNaiss`, `adresse`, `cp`, `ville`) VALUES
+('apicavet@hotmail.fr', 'picavet', 'alexandre', '0611111111', '0000-00-00', '', 0, ''),
+('apicavet@moi.fr', 'lol', 'fvregiop', '0658595835', '0000-00-00', '', 0, ''),
+('tonadresse@hotmail.fr', 'gungor', 'salih', '0655555555', '0000-00-00', '', 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `rdv`
+--
+
+CREATE TABLE IF NOT EXISTS `rdv` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `patient` varchar(50) NOT NULL,
+  `medecin` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `heure` time NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `patient` (`medecin`),
+  KEY `patient_2` (`patient`),
+  KEY `patient_3` (`patient`,`medecin`),
+  KEY `patient_4` (`patient`),
+  KEY `medecin` (`medecin`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+
+--
+-- Contenu de la table `rdv`
+--
+
+INSERT INTO `rdv` (`id`, `patient`, `medecin`, `date`, `heure`) VALUES
+(9, 'apicavet@hotmail.fr', 3, '2017-02-20', '09:00:00'),
+(10, 'apicavet@hotmail.fr', 2, '2017-02-20', '09:00:00'),
+(11, 'apicavet@hotmail.fr', 4, '2017-02-20', '10:00:00'),
+(12, 'apicavet@hotmail.fr', 3, '2017-02-26', '09:00:00'),
+(13, 'apicavet@hotmail.fr', 1, '2017-03-25', '09:00:00'),
+(14, 'apicavet@moi.fr', 3, '2017-03-25', '10:00:00'),
+(15, 'tonadresse@hotmail.fr', 1, '2020-11-20', '10:00:00'),
+(16, 'apicavet@hotmail.fr', 4, '2020-02-20', '08:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `service`
+--
+
+CREATE TABLE IF NOT EXISTS `service` (
+  `id` int(11) NOT NULL,
+  `nom` varchar(35) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `service`
+--
+
+INSERT INTO `service` (`id`, `nom`) VALUES
+(1, 'Médecine'),
+(2, 'Pédiatrie'),
+(3, 'Chirurgie'),
+(4, 'Urgences');
+
+--
+-- Contraintes pour les tables exportées
+--
+
+--
+-- Contraintes pour la table `medecin`
+--
+ALTER TABLE `medecin`
+  ADD CONSTRAINT `MedService` FOREIGN KEY (`idservice`) REFERENCES `service` (`id`);
+
+--
+-- Contraintes pour la table `rdv`
+--
+ALTER TABLE `rdv`
+  ADD CONSTRAINT `MedRdv` FOREIGN KEY (`medecin`) REFERENCES `medecin` (`id`),
+  ADD CONSTRAINT `PatRdv` FOREIGN KEY (`patient`) REFERENCES `patient` (`id`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
